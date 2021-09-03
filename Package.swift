@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftObservable",
+    platforms: [
+        .iOS(.v12),
+        .macOS(.v10_10),
+        .watchOS(.v4),
+        .tvOS(.v11)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -20,7 +26,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "SwiftObservable",
-            dependencies: []),
+            dependencies: [],
+            path: "Sources"),
         .testTarget(
             name: "SwiftObservableTests",
             dependencies: ["SwiftObservable"]),
