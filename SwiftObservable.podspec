@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary = 'Easy Swift utility which makes Observing values a breeze.'
   s.homepage = 'https://github.com/Valerio69/SwiftObservable'
   s.authors = 'Valerio69'
-  s.source = { :git => 'https://github.com/Valerio69/SwiftObservable', :tag => s.version }
+  s.source = { :git => 'https://github.com/Valerio69/SwiftObservable.git', :tag => s.version }
   # s.documentation_url = ''
 
   s.ios.deployment_target = '12.0'
