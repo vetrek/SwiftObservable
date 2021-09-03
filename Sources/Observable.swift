@@ -26,24 +26,24 @@ public struct Observed<Value> {
         
         struct Observer<Value> {
             weak var observer: AnyObject?
-            let block: (Value) -> Void
+            let block: (_ oldValue: Value, _ newValue: Value) -> Void
         }
         
         private var observers = [Observer<Value>]()
         
         fileprivate var value: Value {
-            didSet { notifyObservers() }
+            didSet { notifyObservers(oldValue: oldValue) }
         }
         
         public init(_ value: Value) {
             self.value = value
         }
         
-        public func observe(on observer: AnyObject, observerBlock: @escaping (Value) -> Void) {
+        public func observe(on observer: AnyObject, observerBlock: @escaping (Value, Value) -> Void) {
             // remove invalid observer before adding new ones
             observers = observers.filter { $0.observer != nil }
             observers.append(Observer(observer: observer, block: observerBlock))
-            observerBlock(self.value)
+            observerBlock(value, value)
         }
         
         public func remove(observer: AnyObject) {
@@ -54,9 +54,9 @@ public struct Observed<Value> {
             observers.removeAll()
         }
         
-        private func notifyObservers() {
+        private func notifyObservers(oldValue: Value) {
             for observer in observers {
-                DispatchQueue.main.async { observer.block(self.value) }
+                DispatchQueue.main.async { observer.block(oldValue, self.value) }
             }
         }
         
