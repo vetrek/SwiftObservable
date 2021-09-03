@@ -2,8 +2,18 @@
 
 Easy Swift utility which makes **Observing** values a breeze.
 
-- ### Usage
+## Installation
 
+### Swift Package Manager
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Valerio69/SwiftObservable", .upToNextMajor(from: "0.0.2"))
+]
+```
+
+### Usage
 ```swift
 import SwiftObservable
 
@@ -24,4 +34,3 @@ $name.remove(observer: self)
 $name.removeAllObservers()
 
 ```
-
