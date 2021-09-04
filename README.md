@@ -4,6 +4,13 @@ Easy Swift utility which makes **Observing** values a breeze.
 
 ## Installation
 
+### Cocoapod
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+```ruby
+pod 'SwiftObservable'
+```
+
 ### Swift Package Manager
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
 
