@@ -63,7 +63,7 @@ public final class Observable<Value> {
         observers.removeAll()
     }
     
-    public func assign<R: AnyObject>(to keypath: ReferenceWritableKeyPath<R, Value>, on root: R) {
+    public func assign<R: AnyObject>(to keypath: ReferenceWritableKeyPath<R, Value?>, on root: R) {
         bindedElements.setObject(keypath, forKey: root)
         root[keyPath: keypath] = self.value
     }
