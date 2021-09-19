@@ -76,13 +76,13 @@ public final class Observable<Value> {
         for key in bindedElements.keyEnumerator() {
             let root = key as AnyObject
             guard
-                let keyPath = bindedElements.object(forKey: root) as? ReferenceWritableKeyPath<AnyObject, Value>
+                let keyPath = bindedElements.object(forKey: root) as? ReferenceWritableKeyPath<AnyObject, Value?>
             else { continue }
             updateKeyPath(keyPath, for: root)
         }
     }
     
-    private func updateKeyPath<R: AnyObject>(_ keypath: ReferenceWritableKeyPath<R, Value>, for root: R) {
+    private func updateKeyPath<R: AnyObject>(_ keypath: ReferenceWritableKeyPath<R, Value?>, for root: R) {
         DispatchQueue.main.async { root[keyPath: keypath] = self.value }
     }
     
