@@ -38,8 +38,6 @@ public final class Observable<Value> {
     
     private var observers = [Observer<Value>]()
     
-    private var bindedElements = NSMapTable<AnyObject, AnyObject>(keyOptions: .weakMemory, valueOptions: .weakMemory)
-    
     fileprivate var value: Value {
         didSet { notifyObservers(oldValue: oldValue) }
     }
@@ -63,27 +61,10 @@ public final class Observable<Value> {
         observers.removeAll()
     }
     
-    public func assign<R: AnyObject>(to keypath: ReferenceWritableKeyPath<R, Value?>, on root: R) {
-        bindedElements.setObject(keypath, forKey: root)
-        root[keyPath: keypath] = self.value
-    }
-    
     private func notifyObservers(oldValue: Value) {
         for observer in observers {
             DispatchQueue.main.async { observer.block(oldValue, self.value) }
         }
-        
-        for key in bindedElements.keyEnumerator() {
-            let root = key as AnyObject
-            guard
-                let keyPath = bindedElements.object(forKey: root) as? ReferenceWritableKeyPath<AnyObject, Value?>
-            else { continue }
-            updateKeyPath(keyPath, for: root)
-        }
-    }
-    
-    private func updateKeyPath<R: AnyObject>(_ keypath: ReferenceWritableKeyPath<R, Value?>, for root: R) {
-        DispatchQueue.main.async { root[keyPath: keypath] = self.value }
     }
     
 }
