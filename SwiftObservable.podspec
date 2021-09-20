@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SwiftObservable'
-  s.version = '0.0.4'
+  s.version = '0.0.5'
   s.license = 'MIT'
   s.summary = 'Easy Swift utility which makes Observing values a breeze.'
   s.homepage = 'https://github.com/Valerio69/SwiftObservable'
