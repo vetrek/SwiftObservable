@@ -10,13 +10,11 @@ pod 'SwiftObservable'
 ```
 
 ### Swift Package Manager
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
 
-```swift
-dependencies: [
-    .package(url: "https://github.com/Valerio69/SwiftObservable", .upToNextMajor(from: "0.0.2"))
-]
-```
+    In Xcode 11+ select File > Packages > Add Package Dependency
+    Enter this project's URL: https://github.com/Valerio69/SwiftObservable
+
 
 ### Usage
 ```swift
