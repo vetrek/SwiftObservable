@@ -1,6 +1,6 @@
 # SwiftObservable
 
-Easy Swift utility which makes **Observing** values a breeze.
+Easyily **Observe** value changes in Swift.
 
 ## Installation
 
