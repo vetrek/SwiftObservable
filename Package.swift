@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftObservable",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v11),
         .macOS(.v10_10),
         .watchOS(.v4),
         .tvOS(.v11)
